@@ -1,0 +1,6 @@
+{
+  "name": "ZenPulse",
+  "description": "Student mental health and micro-break tracker for relaxing during intense study sessions",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Fraunces', serif;
+  letter-spacing: -0.015em;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.65;
+}
+
+@layer utilities {
+  /* Frosted Glass Card Light Mode: Soft paper shadow, 16px border-radius, thin 1px low-opacity border */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02);
+    border-radius: 1rem; /* 16px uniform radius */
+    transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Frosted Glass Card Dark Mode */
+  .glass-card-dark {
+    background: rgba(18, 24, 21, 0.32);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Subtly Frosted Circular Chips for Icons */
+  .glass-chip {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: all 180ms ease;
+  }
+
+  .glass-chip-dark {
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    transition: all 180ms ease;
+  }
+
+  /* Floating Glass Pill / Nav Bar */
+  .glass-nav-light {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    box-shadow: 0 12px 32px rgba(44, 62, 47, 0.08);
+  }
+
+  .glass-nav-dark {
+    background: rgba(15, 20, 18, 0.55);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+  }
+
+  .ambient-shadow {
+    box-shadow: 0 16px 36px -10px rgba(50, 75, 54, 0.12);
+  }
+
+  /* 3D Glass Prism Utilities */
+  .perspective-container {
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* 3D Prism Animations */
+@keyframes spin-prism-3d {
+  0% {
+    transform: rotateX(12deg) rotateY(0deg) rotateZ(-4deg);
+  }
+  50% {
+    transform: rotateX(16deg) rotateY(180deg) rotateZ(4deg);
+  }
+  100% {
+    transform: rotateX(12deg) rotateY(360deg) rotateZ(-4deg);
+  }
+}
+
+@keyframes prism-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shadow-breath {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.22;
+  }
+}
+
+@keyframes facet-color-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-spin-prism {
+  animation: spin-prism-3d 10s linear infinite;
+}
+
+.animate-prism-float {
+  animation: prism-float 6s ease-in-out infinite;
+}
+
+.animate-shadow-breath {
+  animation: shadow-breath 6s ease-in-out infinite;
+}
+
+.facet-shimmer {
+  background-size: 200% 200%;
+  animation: facet-color-shift 8s ease infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+}
+
+.breathing-pulse {
+  animation: pulse-ring 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.breathing-pulse-active {
+  animation: pulse-ring 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Hide scrollbars for clean mobile feel */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

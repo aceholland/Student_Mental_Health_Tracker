@@ -1,0 +1,35 @@
+.cube-scene {
+  perspective: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cube-wrapper {
+  transform-style: preserve-3d;
+  animation: rotateCube 20s linear infinite;
+  position: relative;
+}
+
+.cube-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-width: 1px;
+  border-style: solid;
+  background-color: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(1px);
+  box-sizing: border-box;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
